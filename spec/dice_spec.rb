@@ -29,12 +29,23 @@ describe Dice do
         # Subject is the same as creating dice = Dice.new
     end
 
+# ROLLING SEVERAL DICES :   combine     .roll test we now what to expect when a dice is rolled
+                            # with      the random number tests, what is the highest what is the lowest score ?
+                            
+    it "allows user to roll several dices" do
+        # TODO how to check the user can roll more than one dice ? .roll(number_of_dices)?
+        expect(subject).to respond_to(:roll(number_of_dices))
+        expect(subject.roll(2)).to be >= 2
+        expect(subject.roll(2)).to be <= 12
+        expect(subject.roll(2)).to be_an(Integer)
+    end
+
     # xit "returns a number between one and six" do
     #     dice = Dice.new
     #     expect(dice.roll).to eq(1)
     # end
 
-    it "returns a random number between 1 and 6" do
+    it "returns a random number between 1 and 6" do         # user story 2 => random number between 1 and 6
         # expect a number bigger than 1
         expect(subject.roll).to be >= 1
         # expect a number smaller than 6
@@ -42,9 +53,4 @@ describe Dice do
         # check it is an integer
         expect(subject.roll).to be_an(Integer)
     end
-
-    it "allows user to roll several dices" do
-
-    end
-
 end
